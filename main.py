@@ -20,7 +20,7 @@ def initial ():
 
 @app.route("/submit-prompt",methods=["POST"])
 def generate_image ():
-    prompt = request.form("prompt-input")
+    prompt = request.form["prompt-input"]
     image = pipe(prompt).images[0]
 
     buffered = BytesIO()
