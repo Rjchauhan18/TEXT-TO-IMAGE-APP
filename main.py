@@ -27,7 +27,7 @@ def generate_image ():
     image.save(buffered, format="png")
     img_str = base64.b64encode(buffered.getvalue())
 
-    return render_template("index,html", generate_image=img_str)
+    return render_template("index.html", generate_image=img_str)
 
 if __name__ == "__main__":
     app.run()
