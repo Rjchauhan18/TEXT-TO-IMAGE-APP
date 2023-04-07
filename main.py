@@ -7,7 +7,10 @@ from diffusers import StableDiffusionPipeline
 import base64
 from io import BytesIO
 
-pipe = StableDiffusionPipeline.from_pretrained("runwayml/stable-diffusion-v1-5",revision="fp16",torch_dtype=torch.float16)
+# pipe = StableDiffusionPipeline.from_pretrained("runwayml/stable-diffusion-v1-5",revision="fp16",torch_dtype=torch.float16)
+
+
+pipe = StableDiffusionPipeline.from_pretrained("CompVis/stable-diffusion-v1-4",revision="fp16",torch_dtype=torch.float16)CompVis/stable-diffusion-v1-4
 
 pipe.to("cuda")
 
