@@ -1,15 +1,13 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles.css') }}" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('testing-html-css',filename='styles.css') }}" /> -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script> -->
     <style type="text/tailwindcss">
       @layer utilities {
         .content-auto {
@@ -18,70 +16,39 @@
       }
     </style>
     <!-- <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='icon.png') }}" /> -->
-    <title>Text To Image App</title>
+    <title>Stable Diffusion App</title>
 </head>
 <body>
-
-  <nav class="flex justify-end space-x-4">
-  <a href="/dashboard" class="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Home</a>
-  <a href="/projects" class="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">About Us</a>
-  <a href="/reports" class="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Reports</a>
-</nav>
-
-
-
-
-
-
-
-
-
-
-
-  <div class="grid place-items-center" >
+  <div class="container">
+  <div class="heading" >
     <!-- ... -->
-    <h1 class="text-5xl font-bold">
-      Text To Image App
+    <h1 class="app_name">
+      Stable Diffusion App
     </h1>
-  </div>
-
-    <p class= "grid place-items-center  text-1xl relative top-3  ">
-      Generate images with Text To Image App for free! Enter your prompt below and hit "Create" to generate an image (takes ~10 seconds per image).
-
-    </p>
+  <!-- <h1></h1> -->
+    <p class="para">Generate images with stable diffusion for free! Enter your prompt below and hit "Create" to generate an image (takes ~10 seconds per image).</p>
    
- 
+  </div>
+    
+   
+   
+   
+    <form class="form_sub" action="\submit-prompt" method="post" id="submission-form">
+         
+            <div class="prompt">
+              <label for="prompt">Prompt:</label>
+              <!-- <input type="text" id="prompt" name="prompt-input" /> -->
+              <input type="text" class="text-1xl relative top-8" id="prompt" name="prompt-input" placeholder="Enter Text...">
+              
+              <button type="submit">Create</button>
+            </div>
+    </form>
 
+    <div class="image">
+      <!-- <img src="Screenshot 2023-03-23 193837.png" class="mainImg" alt="Generated Image"> -->
+      <img src="#" class="mainImg" alt="Generated Image">
 
-<form action="\submit-prompt" method="post" id="submission-form" class="grid relative top-7">   
-    <!-- <label for="prompt" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"></label> -->
-    <div class="relative">
-        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-            <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-        </div>
-        <input  type="search" id="search" name="prompt-input" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Your Text..." required>
-        <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create</button>
     </div>
-</form>
-
-
-
-
-
-<div class="grid place-content-center relative top-9">
-  
-    <img src="{{ generated_image|default("https://images.squarespace-cdn.com/content/v1/6213c340453c3f502425776e/0715034d-4044-4c55-9131-e4bfd6dd20ca/2_4x.png?format=512w", true) }}" class="mainImg" alt="Generated Image">
-
-</div>
-
+  </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
